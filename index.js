@@ -1,9 +1,11 @@
 const express = require('express');
 const Puzzle = require('./src/Puzzle.js');
 const Util = require('./src/Util/Util.js');
+const cors = require('cors');
 const app = express();
 
 app.use(express.json())
+app.use(cors())
 
 app.post('/aEstrela', (req, res) => {
     const input = req.body.input.split(",");
@@ -55,6 +57,6 @@ app.post('/embaralhar', (req, res) => {
     res.send(util.randomString(req.body.goal))
 })
 
-app.listen(3000, () => {
-    console.log('Aplicação rodando em http://localhost:3000');
+app.listen(3001, () => {
+    console.log('Aplicação rodando em http://localhost:3001');
 });
